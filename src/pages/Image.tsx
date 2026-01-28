@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 
 import photo1 from "../assets/images/photo1.png";
 import photo2 from "../assets/images/photo2.jpg";
@@ -10,7 +10,7 @@ import photo5 from "../assets/images/photo5.jpg";
 const images = [photo1, photo2, photo3, photo4, photo5];
 
 const slideVariants = {
-  enter: (direction: 1 | -1) => ({
+  enter: (direction: number) => ({
     x: direction === 1 ? "100%" : "-100%",
     opacity: 0,
   }),
@@ -18,7 +18,7 @@ const slideVariants = {
     x: 0,
     opacity: 1,
   },
-  exit: (direction: 1 | -1) => ({
+  exit: (direction: number) => ({
     x: direction === 1 ? "-100%" : "100%",
     opacity: 0,
   }),
@@ -26,7 +26,7 @@ const slideVariants = {
 
 const AUTO_SLIDE_INTERVAL = 4000;
 
-export default function Image() {
+export default function ImageSlider() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
   const timerRef = useRef<number | null>(null);
@@ -50,7 +50,10 @@ export default function Image() {
     startAutoSlide();
   };
 
-  const handleDragEnd = (_: any, info: any) => {
+  const handleDragEnd = (
+    _: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
     if (info.offset.x < -80) {
       setDirection(1);
       setIndex((prev) => (prev + 1) % images.length);
@@ -70,7 +73,6 @@ export default function Image() {
   return (
     <>
       <h2 style={{ textAlign: "center" }}>Image</h2>
-
       <div
         style={{
           position: "relative",
