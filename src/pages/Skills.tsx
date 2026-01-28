@@ -1,5 +1,3 @@
-import ContentBox from "../components/common/ContentBox";
-
 export default function Skills() {
   return (
     <>

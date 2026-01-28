@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ContentBox from "../components/common/ContentBox";
 
-import photo1 from "../assets/images/photo1.PNG";
+import photo1 from "../assets/images/photo1.png";
 import photo2 from "../assets/images/photo2.jpg";
 import photo3 from "../assets/images/photo3.jpg";
 import photo4 from "../assets/images/photo4.jpg";

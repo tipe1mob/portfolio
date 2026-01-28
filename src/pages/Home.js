@@ -8,7 +8,6 @@ import { fadeUp } from "../animations/fadeUp";
 import { ANIMATION } from "../animations/config";
 import ContentBox from "../components/common/ContentBox";
 const BOX_HEIGHT_TOP = 340;
-const BOX_HEIGHT_BOTTOM = 340;
 const IMAGE_BOX_HEIGHT = 700;
 const WORKS_BOX_HEIGHT = 700;
 export default function Home() {

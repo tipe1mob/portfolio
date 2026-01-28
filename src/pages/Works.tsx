@@ -1,4 +1,3 @@
-import ContentBox from "../components/common/ContentBox";
 
 export default function Works() {
   return (
