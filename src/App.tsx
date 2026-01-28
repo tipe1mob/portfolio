@@ -1,40 +1,48 @@
-import { useState } from 'react'
-import './App.css'
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import Home from "./pages/Home";
+import SectionBox from "./components/common/SectionBox";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        background: "linear-gradient(135deg, #e0e7ff, #f8fafc)",
+      }}
+    >
+      {/* Header */}
+      <SectionBox
+        style={{
+          borderRadius: "0 0 24px 24px",
+        }}
+      >
+        <Header />
+      </SectionBox>
 
+      {/* Home（完全透過） */}
+      <SectionBox
+        transparent
+        noBorder
+        style={{
+          flex: 1,
+        }}
+      >
+        <Home />
+      </SectionBox>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+      {/* Footer */}
+      <SectionBox
+        style={{
+          borderRadius: "24px 24px 0 0",
+        }}
+      >
+        <Footer />
+      </SectionBox>
+    </div>
+  );
 }
 
-export default App
+export default App;
