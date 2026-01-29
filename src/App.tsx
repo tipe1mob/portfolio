@@ -10,6 +10,7 @@ function App() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
         background: "linear-gradient(135deg, #e0e7ff, #f8fafc)",
       }}
     >
